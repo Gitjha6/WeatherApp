@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Advanced Weather App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body id="app" data-theme="light" class="min-h-screen bg-blue-100 text-gray-900 transition duration-300">
+  <div class="flex justify-between items-center p-4">
+    <button id="darkToggle" class="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700">
+      🌙 Dark Mode
+    </button>
+    <button id="unitToggle" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+      °C / °F
+    </button>
+  </div>
+
+  <!-- Loader -->
+  <div id="loader" class="hidden animate-spin h-10 w-10 mx-auto text-blue-500">🔄</div>
+
+  <!-- Weather UI -->
+  <div class="flex items-center justify-center">
+    <div class="bg-white dark:bg-gray-900 dark:text-white p-6 rounded-2xl shadow-lg text-center w-96">
+      <h1 class="text-2xl font-bold mb-4">🌦️ Weather App</h1>
+      <input id="cityInput" type="text" placeholder="Enter city"
+        class="w-full p-2 border border-gray-300 dark:border-gray-600 rounded mb-4 dark:bg-gray-800 dark:text-white">
+      <button onclick="getWeatherByCity()"
+        class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Search</button>
+      <div id="errorBox" class="text-red-500 mt-2"></div>
+
+      <div id="weatherResult" class="mt-6 hidden">
+        <h2 id="cityName" class="text-xl font-semibold"></h2>
+        <img id="weatherIcon" class="mx-auto my-2 w-20">
+        <p id="temp" class="text-lg"></p>
+        <p id="desc" class="capitalize"></p>
+        <p id="humidity"></p>
+        <p id="wind"></p>
+      </div>
+
+      <!-- Forecast -->
+      <div id="forecast" class="mt-6 grid grid-cols-2 gap-2 hidden">
+        <!-- Forecast cards will be inserted here -->
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
